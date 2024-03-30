@@ -1,0 +1,38 @@
+﻿<Window x:Class="WPFSemana3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFSemana3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="{DynamicResource {x:Static SystemColors.MenuBrushKey}}">
+    <Grid Margin="77,36,110,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="402*"/>
+            <ColumnDefinition Width="211*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10,10,10,10" Grid.ColumnSpan="2">
+            <TextBox x:Name="txtSearch" Width="200" Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <Button Content="Buscar" Click="Buscar_Click" Background="#FF5C6EE0" Foreground="White"/>
+            <Button Content="Cargar usando DataTable" Click="CargarDataTable_Click" Margin="10" Background="#FFDA5A5A" Foreground="White"/>
+            <Button Content="Cargar usando DataReader" Click="CargarDataReader_Click" Margin="10" Foreground="White" Background="#FF48DA51"/>
+
+        </StackPanel>
+
+
+        <DataGrid x:Name="dataGrid" Grid.Row="1" AutoGenerateColumns="False" RenderTransformOrigin="0.65,0.396" Margin="0,0,0,97" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Estudiante" Binding="{Binding StudentId}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding LastName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="Lista_de_Estudiantes" Content="Lista de Estudiantes" HorizontalAlignment="Left" Margin="258,-33,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Height="38" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
